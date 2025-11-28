@@ -180,7 +180,7 @@ class Strategy:
             reason = ["⚠️ Price crossed below EMA50"]
 
         return {
-            'signal': 'buy',
+            'signal': signal,  # Aquí usa la variable calculada, NO 'buy' fijo
             'price': float(price),
             'rsi': float(rsi),
             'macd': float(macd),
@@ -190,5 +190,5 @@ class Strategy:
             'ema_trend': float(ema_trend),
             'ema_slow': float(ema_slow),
             'ema_fast': float(ema_fast),
-            'reason': ' | '.join(reason)
+            'reason': ' | '.join(reason) if reason else 'Market Scanning...'
         }
